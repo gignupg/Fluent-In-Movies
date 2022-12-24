@@ -3,7 +3,7 @@ import "./App.css";
 import M from "materialize-css";
 import text from "./text";
 import content from "./content";
-
+import Player from "@vimeo/player";
 type Region = "en" | "es" | "de";
 
 const language = window.navigator.language.replace(/-.*/, "");
@@ -11,9 +11,14 @@ const defLang = language === "es" || language === "de" ? language : "en";
 
 function App() {
   const [region, setRegion] = useState<Region>(defLang);
+  const [player, setPlayer] = useState<Player | null>(null);
 
   const updateRegion = (elem: Element) => {
     setRegion(elem.id as Region);
+  };
+
+  const rewind = () => {
+    player?.play();
   };
 
   useEffect(() => {
@@ -27,6 +32,15 @@ function App() {
       const instance = M.Tabs.init(elem, { onShow: updateRegion });
       instance.select(defLang);
     }
+    const iframe = document.getElementsByTagName("iframe")[0];
+    const player = new Player(iframe);
+    setPlayer(player);
+    player.on("timeupdate", function (time) {
+      console.log("time:", time);
+      // if (this.currentTime >= 5 * 60) {
+      //   this.pause();
+      // }
+    });
   }, []);
 
   return (
@@ -59,13 +73,13 @@ function App() {
           title="video"
         ></iframe>
       </div>
-
       <div className="buttons">
         <button className="button">Prev</button>
-        <button className="button">Rewind</button>
+        <button className="button" onClick={rewind}>
+          Rewind
+        </button>
         <button className="button">Next</button>
       </div>
-
       <ul className="collapsible col s12 m10 offset-m1">
         <li>
           <div className="collapsible-header">
