@@ -72,102 +72,104 @@ function App() {
   }, []);
 
   return (
-    <div className="row">
-      <div className="col s12 m8 l6 offset-m2 offset-l3">
-        <div className="video-container">
-          <iframe
-            width="853"
-            height="480"
-            src="https://player.vimeo.com/video/784124019?h=8b1452e6ab&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-            frameBorder="0"
-            allowFullScreen
-            title="video"
-          ></iframe>
-        </div>
-        {userInteraction && (
-          <div className="buttons">
-            <button
-              className="btn-large waves-effect waves-light col s4"
-              onClick={rewind}
-            >
-              <i className="large material-icons col s4 offset-s4">
-                fast_rewind
-              </i>
-            </button>
-            <button
-              className="btn-large waves-effect waves-light col s4"
-              onClick={repeat}
-            >
-              <i className="large material-icons col s4 offset-s4">replay</i>
-            </button>
-            <button
-              className="btn-large waves-effect waves-light col s4"
-              onClick={forward}
-            >
-              <i className="large material-icons col s4 offset-s4">
-                fast_forward
-              </i>
-            </button>
+    <center>
+      <div className="row">
+        <div className="col s12 m8 l6 offset-m2 offset-l3">
+          <div className="video-container">
+            <iframe
+              width="853"
+              height="480"
+              src="https://player.vimeo.com/video/784124019?h=8b1452e6ab&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+              frameBorder="0"
+              allowFullScreen
+              title="video"
+            ></iframe>
           </div>
-        )}
-        <ul className="collapsible">
-          {text[pos].subtitles.en.length > 0 && (
-            <li>
-              <div className="collapsible-header">
-                <i className="material-icons">subtitles</i>
-                {content.subtitles[region]}
-              </div>
-              <div className="collapsible-body">
-                {text[pos].subtitles.en.map((subtitle: string) => (
-                  <p className="flow-text">{subtitle}</p>
-                ))}
-              </div>
-            </li>
+          {userInteraction && (
+            <div className="buttons">
+              <button
+                className="btn-large waves-effect waves-light col s4"
+                onClick={rewind}
+              >
+                <i className="large material-icons col s4 offset-s4">
+                  fast_rewind
+                </i>
+              </button>
+              <button
+                className="btn-large waves-effect waves-light col s4"
+                onClick={repeat}
+              >
+                <i className="large material-icons col s4 offset-s4">replay</i>
+              </button>
+              <button
+                className="btn-large waves-effect waves-light col s4"
+                onClick={forward}
+              >
+                <i className="large material-icons col s4 offset-s4">
+                  fast_forward
+                </i>
+              </button>
+            </div>
           )}
-          {region !== "en" && text[pos].translation[region].length > 0 && (
-            <li>
-              <div className="collapsible-header">
-                <i className="material-icons">g_translate</i>
-                {content.translation[region]}
-              </div>
-              <div className="collapsible-body">
-                {text[pos].translation[region].map((translation: string) => (
-                  <p className="flow-text">{translation}</p>
-                ))}
-              </div>
-            </li>
-          )}
-          {text[pos].vocabulary.length > 0 && (
-            <li>
-              <div className="collapsible-header">
-                <i className="material-icons">school</i>
-                {content.vocabulary[region]}
-              </div>
-              <div className="collapsible-body left-align">
-                <table className="striped">
-                  <thead>
-                    <tr>
-                      <th>Phrase</th>
-                      <th>Definition</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {text[pos].vocabulary.map(
-                      ([phrase, definition]: string[]) => (
-                        <tr>
-                          <td>{phrase}</td>
-                          <td>{definition}</td>
-                        </tr>
-                      )
-                    )}
-                  </tbody>
-                </table>
-              </div>
-            </li>
-          )}
-        </ul>
+          <ul className="collapsible">
+            {text[pos].subtitles.en.length > 0 && (
+              <li>
+                <div className="collapsible-header">
+                  <i className="material-icons">subtitles</i>
+                  {content.subtitles[region]}
+                </div>
+                <div className="collapsible-body">
+                  {text[pos].subtitles.en.map((subtitle: string) => (
+                    <p className="flow-text">{subtitle}</p>
+                  ))}
+                </div>
+              </li>
+            )}
+            {region !== "en" && text[pos].translation[region].length > 0 && (
+              <li>
+                <div className="collapsible-header">
+                  <i className="material-icons">g_translate</i>
+                  {content.translation[region]}
+                </div>
+                <div className="collapsible-body">
+                  {text[pos].translation[region].map((translation: string) => (
+                    <p className="flow-text">{translation}</p>
+                  ))}
+                </div>
+              </li>
+            )}
+            {text[pos].vocabulary.length > 0 && (
+              <li>
+                <div className="collapsible-header">
+                  <i className="material-icons">school</i>
+                  {content.vocabulary[region]}
+                </div>
+                <div className="collapsible-body left-align">
+                  <table className="striped">
+                    <thead>
+                      <tr>
+                        <th>Phrase</th>
+                        <th>Definition</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {text[pos].vocabulary.map(
+                        ([phrase, definition]: string[]) => (
+                          <tr>
+                            <td>{phrase}</td>
+                            <td>{definition}</td>
+                          </tr>
+                        )
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+              </li>
+            )}
+          </ul>
+        </div>
       </div>
-    </div>
+    </center>
   );
 }
 
