@@ -2,108 +2,144 @@ import subtitles from './subtitles';
 
 const text = [
     {
+        time: 0,
         subtitles: {
-            en: subtitles.text1.en,
-            es: subtitles.text1.es,
-            de: subtitles.text1.de
+            en: subtitles[0].en,
+            es: subtitles[0].es,
+            de: subtitles[0].de
         },
         translation: {
-            en: subtitles.text1.en,
-            es: subtitles.text1.es,
-            de: subtitles.text1.de
+            en: subtitles[0].en,
+            es: subtitles[0].es,
+            de: subtitles[0].de
+        },
+        vocabulary: []
+    },
+    {
+        time: 5.25,
+        subtitles: {
+            en: subtitles[0].en,
+            es: subtitles[0].es,
+            de: subtitles[0].de
+        },
+        translation: {
+            en: subtitles[0].en,
+            es: subtitles[0].es,
+            de: subtitles[0].de
         },
         vocabulary: [
             ["My bad", "Used to acknowledge responsibility for a mistake. \"Sorry about the confusion. It's my bad!\""]
         ]
     },
     {
+        time: 9.5,
         subtitles: {
-            en: subtitles.text2.en,
-            es: subtitles.text2.es,
-            de: subtitles.text2.de
+            en: subtitles[1].en,
+            es: subtitles[1].es,
+            de: subtitles[1].de
         },
         translation: {
-            en: subtitles.text2.en,
-            es: subtitles.text2.es,
-            de: subtitles.text2.de
+            en: subtitles[1].en,
+            es: subtitles[1].es,
+            de: subtitles[1].de
         },
         vocabulary: []
     },
     {
+        time: 11.5,
         subtitles: {
-            en: subtitles.text3.en,
-            es: subtitles.text3.es,
-            de: subtitles.text3.de
+            en: subtitles[2].en,
+            es: subtitles[2].es,
+            de: subtitles[2].de
         },
         translation: {
-            en: subtitles.text3.en,
-            es: subtitles.text3.es,
-            de: subtitles.text3.de
+            en: subtitles[2].en,
+            es: subtitles[2].es,
+            de: subtitles[2].de
         },
         vocabulary: []
     },
     {
+        time: 19,
         subtitles: {
-            en: subtitles.text4.en,
-            es: subtitles.text4.es,
-            de: subtitles.text4.de
+            en: subtitles[2].en,
+            es: subtitles[2].es,
+            de: subtitles[2].de
         },
         translation: {
-            en: subtitles.text4.en,
-            es: subtitles.text4.es,
-            de: subtitles.text4.de
+            en: subtitles[2].en,
+            es: subtitles[2].es,
+            de: subtitles[2].de
         },
         vocabulary: []
     },
     {
+        time: 0,
         subtitles: {
-            en: subtitles.text5.en,
-            es: subtitles.text5.es,
-            de: subtitles.text5.de
+            en: subtitles[3].en,
+            es: subtitles[3].es,
+            de: subtitles[3].de
         },
         translation: {
-            en: subtitles.text5.en,
-            es: subtitles.text5.es,
-            de: subtitles.text5.de
+            en: subtitles[3].en,
+            es: subtitles[3].es,
+            de: subtitles[3].de
         },
         vocabulary: []
     },
     {
+        time: 0,
         subtitles: {
-            en: subtitles.text6.en,
-            es: subtitles.text6.es,
-            de: subtitles.text6.de
+            en: subtitles[4].en,
+            es: subtitles[4].es,
+            de: subtitles[4].de
         },
         translation: {
-            en: subtitles.text6.en,
-            es: subtitles.text6.es,
-            de: subtitles.text6.de
+            en: subtitles[4].en,
+            es: subtitles[4].es,
+            de: subtitles[4].de
         },
         vocabulary: []
     },
     {
+        time: 0,
         subtitles: {
-            en: subtitles.text7.en,
-            es: subtitles.text7.es,
-            de: subtitles.text7.de
+            en: subtitles[5].en,
+            es: subtitles[5].es,
+            de: subtitles[5].de
         },
         translation: {
-            en: subtitles.text7.en,
-            es: subtitles.text7.es,
-            de: subtitles.text7.de
+            en: subtitles[5].en,
+            es: subtitles[5].es,
+            de: subtitles[5].de
         },
         vocabulary: []
     },
     {
+        time: 0,
         subtitles: {
-            en: subtitles.text8.en,
-            es: subtitles.text8.es,
-            de: subtitles.text8.de
+            en: subtitles[6].en,
+            es: subtitles[6].es,
+            de: subtitles[6].de
         },
         translation: {
-            en: subtitles.text8.en,
-            es: subtitles.text8.es,
-            de: subtitles.text8.de
+            en: subtitles[6].en,
+            es: subtitles[6].es,
+            de: subtitles[6].de
+        },
+        vocabulary: []
+    },
+    {
+        time: 0,
+        subtitles: {
+            en: subtitles[7].en,
+            es: subtitles[7].es,
+            de: subtitles[7].de
+        },
+        translation: {
+            en: subtitles[7].en,
+            es: subtitles[7].es,
+            de: subtitles[7].de
         },
         vocabulary: [
             ["Oui [French]", "Yes"],
@@ -112,82 +148,88 @@ const text = [
         ]
     },
     {
+        time: 0,
         subtitles: {
-            en: subtitles.text9.en,
-            es: subtitles.text9.es,
-            de: subtitles.text9.de
+            en: subtitles[8].en,
+            es: subtitles[8].es,
+            de: subtitles[8].de
         },
         translation: {
-            en: subtitles.text9.en,
-            es: subtitles.text9.es,
-            de: subtitles.text9.de
+            en: subtitles[8].en,
+            es: subtitles[8].es,
+            de: subtitles[8].de
         },
         vocabulary: []
     },
     {
+        time: 0,
         subtitles: {
-            en: subtitles.text10.en,
-            es: subtitles.text10.es,
-            de: subtitles.text10.de
+            en: subtitles[9].en,
+            es: subtitles[9].es,
+            de: subtitles[9].de
         },
         translation: {
-            en: subtitles.text10.en,
-            es: subtitles.text10.es,
-            de: subtitles.text10.de
+            en: subtitles[9].en,
+            es: subtitles[9].es,
+            de: subtitles[9].de
         },
         vocabulary: [
             ["To lay off of someone", "To leave someone alone, to stop bothering/attacking/hurting someone"]
         ]
     },
     {
+        time: 0,
         subtitles: {
-            en: subtitles.text11.en,
-            es: subtitles.text11.es,
-            de: subtitles.text11.de
+            en: subtitles[10].en,
+            es: subtitles[10].es,
+            de: subtitles[10].de
         },
         translation: {
-            en: subtitles.text11.en,
-            es: subtitles.text11.es,
-            de: subtitles.text11.de
+            en: subtitles[10].en,
+            es: subtitles[10].es,
+            de: subtitles[10].de
         },
         vocabulary: []
     },
     {
+        time: 0,
         subtitles: {
-            en: subtitles.text12.en,
-            es: subtitles.text12.es,
-            de: subtitles.text12.de
+            en: subtitles[11].en,
+            es: subtitles[11].es,
+            de: subtitles[11].de
         },
         translation: {
-            en: subtitles.text12.en,
-            es: subtitles.text12.es,
-            de: subtitles.text12.de
+            en: subtitles[11].en,
+            es: subtitles[11].es,
+            de: subtitles[11].de
         },
         vocabulary: []
     },
     {
+        time: 0,
         subtitles: {
-            en: subtitles.text13.en,
-            es: subtitles.text13.es,
-            de: subtitles.text13.de
+            en: subtitles[12].en,
+            es: subtitles[12].es,
+            de: subtitles[12].de
         },
         translation: {
-            en: subtitles.text13.en,
-            es: subtitles.text13.es,
-            de: subtitles.text13.de
+            en: subtitles[12].en,
+            es: subtitles[12].es,
+            de: subtitles[12].de
         },
         vocabulary: []
     },
     {
+        time: 0,
         subtitles: {
-            en: subtitles.text14.en,
-            es: subtitles.text14.es,
-            de: subtitles.text14.de
+            en: subtitles[13].en,
+            es: subtitles[13].es,
+            de: subtitles[13].de
         },
         translation: {
-            en: subtitles.text14.en,
-            es: subtitles.text14.es,
-            de: subtitles.text14.de
+            en: subtitles[13].en,
+            es: subtitles[13].es,
+            de: subtitles[13].de
         },
         vocabulary: [
             ["Thickness", "Used as a swear word, meaning fat (non-standard)"],
@@ -195,73 +237,78 @@ const text = [
         ]
     },
     {
+        time: 0,
         subtitles: {
-            en: subtitles.text15.en,
-            es: subtitles.text15.es,
-            de: subtitles.text15.de
+            en: subtitles[14].en,
+            es: subtitles[14].es,
+            de: subtitles[14].de
         },
         translation: {
-            en: subtitles.text15.en,
-            es: subtitles.text15.es,
-            de: subtitles.text15.de
+            en: subtitles[14].en,
+            es: subtitles[14].es,
+            de: subtitles[14].de
         },
         vocabulary: [
             ["Goggles", "Special glasses that fit close to the face to protect the eyes, often used for swimming"]
         ]
     },
     {
+        time: 0,
         subtitles: {
-            en: subtitles.text16.en,
-            es: subtitles.text16.es,
-            de: subtitles.text16.de
+            en: subtitles[15].en,
+            es: subtitles[15].es,
+            de: subtitles[15].de
         },
         translation: {
-            en: subtitles.text16.en,
-            es: subtitles.text16.es,
-            de: subtitles.text16.de
+            en: subtitles[15].en,
+            es: subtitles[15].es,
+            de: subtitles[15].de
         },
         vocabulary: [
             ["Son of a gun", "Son of a gun is an exclamation in American and British English. It can be used encouragingly or to compliment, as in \"You son of a gun, you did it!\""]
         ]
     },
     {
+        time: 0,
         subtitles: {
-            en: subtitles.text17.en,
-            es: subtitles.text17.es,
-            de: subtitles.text17.de
+            en: subtitles[16].en,
+            es: subtitles[16].es,
+            de: subtitles[16].de
         },
         translation: {
-            en: subtitles.text17.en,
-            es: subtitles.text17.es,
-            de: subtitles.text17.de
+            en: subtitles[16].en,
+            es: subtitles[16].es,
+            de: subtitles[16].de
         },
         vocabulary: []
     },
     {
+        time: 0,
         subtitles: {
-            en: subtitles.text18.en,
-            es: subtitles.text18.es,
-            de: subtitles.text18.de
+            en: subtitles[17].en,
+            es: subtitles[17].es,
+            de: subtitles[17].de
         },
         translation: {
-            en: subtitles.text18.en,
-            es: subtitles.text18.es,
-            de: subtitles.text18.de
+            en: subtitles[17].en,
+            es: subtitles[17].es,
+            de: subtitles[17].de
         },
         vocabulary: [
             ["To come in hot", "He's refering to Hancock's landing, the street got a little destroyed when he landed"]
         ]
     },
     {
+        time: 0,
         subtitles: {
-            en: subtitles.text19.en,
-            es: subtitles.text19.es,
-            de: subtitles.text19.de
+            en: subtitles[18].en,
+            es: subtitles[18].es,
+            de: subtitles[18].de
         },
         translation: {
-            en: subtitles.text19.en,
-            es: subtitles.text19.es,
-            de: subtitles.text19.de
+            en: subtitles[18].en,
+            es: subtitles[18].es,
+            de: subtitles[18].de
         },
         vocabulary: [
             ["Very", "Exact/precise"],
@@ -269,110 +316,118 @@ const text = [
         ]
     },
     {
+        time: 0,
         subtitles: {
-            en: subtitles.text20.en,
-            es: subtitles.text20.es,
-            de: subtitles.text20.de
+            en: subtitles[19].en,
+            es: subtitles[19].es,
+            de: subtitles[19].de
         },
         translation: {
-            en: subtitles.text20.en,
-            es: subtitles.text20.es,
-            de: subtitles.text20.de
+            en: subtitles[19].en,
+            es: subtitles[19].es,
+            de: subtitles[19].de
         },
         vocabulary: []
     },
     {
+        time: 0,
         subtitles: {
-            en: subtitles.text22.en,
-            es: subtitles.text22.es,
-            de: subtitles.text22.de
+            en: subtitles[20].en,
+            es: subtitles[20].es,
+            de: subtitles[20].de
         },
         translation: {
-            en: subtitles.text22.en,
-            es: subtitles.text22.es,
-            de: subtitles.text22.de
+            en: subtitles[20].en,
+            es: subtitles[20].es,
+            de: subtitles[20].de
         },
         vocabulary: [
             ["Punkass", "An obnoxious or stupid person unworthy of respect"]
         ]
     },
     {
+        time: 0,
         subtitles: {
-            en: subtitles.text23.en,
-            es: subtitles.text23.es,
-            de: subtitles.text23.de
+            en: subtitles[21].en,
+            es: subtitles[21].es,
+            de: subtitles[21].de
         },
         translation: {
-            en: subtitles.text23.en,
-            es: subtitles.text23.es,
-            de: subtitles.text23.de
+            en: subtitles[21].en,
+            es: subtitles[21].es,
+            de: subtitles[21].de
         },
         vocabulary: []
     },
     {
+        time: 0,
         subtitles: {
-            en: subtitles.text24.en,
-            es: subtitles.text24.es,
-            de: subtitles.text24.de
+            en: subtitles[22].en,
+            es: subtitles[22].es,
+            de: subtitles[22].de
         },
         translation: {
-            en: subtitles.text24.en,
-            es: subtitles.text24.es,
-            de: subtitles.text24.de
+            en: subtitles[22].en,
+            es: subtitles[22].es,
+            de: subtitles[22].de
         },
         vocabulary: []
     },
     {
+        time: 0,
         subtitles: {
-            en: subtitles.text25.en,
-            es: subtitles.text25.es,
-            de: subtitles.text25.de
+            en: subtitles[23].en,
+            es: subtitles[23].es,
+            de: subtitles[23].de
         },
         translation: {
-            en: subtitles.text25.en,
-            es: subtitles.text25.es,
-            de: subtitles.text25.de
+            en: subtitles[23].en,
+            es: subtitles[23].es,
+            de: subtitles[23].de
         },
         vocabulary: [
             ["To go down", "To be received in a particular way: \"The joke didn't go down very well!\""]
         ]
     },
     {
+        time: 0,
         subtitles: {
-            en: subtitles.text26.en,
-            es: subtitles.text26.es,
-            de: subtitles.text26.de
+            en: subtitles[24].en,
+            es: subtitles[24].es,
+            de: subtitles[24].de
         },
         translation: {
-            en: subtitles.text26.en,
-            es: subtitles.text26.es,
-            de: subtitles.text26.de
+            en: subtitles[24].en,
+            es: subtitles[24].es,
+            de: subtitles[24].de
         },
         vocabulary: []
     },
     {
+        time: 0,
         subtitles: {
-            en: subtitles.text27.en,
-            es: subtitles.text27.es,
-            de: subtitles.text27.de
+            en: subtitles[25].en,
+            es: subtitles[25].es,
+            de: subtitles[25].de
         },
         translation: {
-            en: subtitles.text27.en,
-            es: subtitles.text27.es,
-            de: subtitles.text27.de
+            en: subtitles[25].en,
+            es: subtitles[25].es,
+            de: subtitles[25].de
         },
         vocabulary: []
     },
     {
+        time: 0,
         subtitles: {
-            en: subtitles.text28.en,
-            es: subtitles.text28.es,
-            de: subtitles.text28.de
+            en: subtitles[26].en,
+            es: subtitles[26].es,
+            de: subtitles[26].de
         },
         translation: {
-            en: subtitles.text28.en,
-            es: subtitles.text28.es,
-            de: subtitles.text28.de
+            en: subtitles[26].en,
+            es: subtitles[26].es,
+            de: subtitles[26].de
         },
         vocabulary: []
     },

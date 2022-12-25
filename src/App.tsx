@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./App.css";
 import M from "materialize-css";
 import text from "./text";
@@ -12,12 +12,36 @@ const defLang = language === "es" || language === "de" ? language : "en";
 function App() {
   const [region, setRegion] = useState<Region>(defLang);
   const [player, setPlayer] = useState<Player | null>(null);
+  const [pos, setPos] = useState<number>(0);
+  const posRef = useRef<number>(0);
+  const [userInteraction, setUserInteraction] = useState<boolean>(false);
 
   const updateRegion = (elem: Element) => {
     setRegion(elem.id as Region);
   };
 
+  const forward = () => {
+    const newPos = posRef.current + 1;
+    if (newPos < text.length) {
+      player?.setCurrentTime(text[newPos].time);
+      setPos(newPos);
+      posRef.current = newPos;
+      player?.play();
+    }
+  };
+
   const rewind = () => {
+    const newPos = posRef.current - 1;
+    if (newPos >= 0) {
+      player?.setCurrentTime(text[newPos].time);
+      setPos(newPos);
+      posRef.current = newPos;
+      player?.play();
+    }
+  };
+
+  const repeat = () => {
+    player?.setCurrentTime(text[posRef.current].time);
     player?.play();
   };
 
@@ -36,10 +60,18 @@ function App() {
     const player = new Player(iframe);
     setPlayer(player);
     player.on("timeupdate", function (time) {
-      console.log("time:", time);
-      // if (this.currentTime >= 5 * 60) {
-      //   this.pause();
-      // }
+      setUserInteraction(true);
+      const nextPos = posRef.current + 1;
+      if (nextPos < text.length && time.seconds >= text[nextPos].time) {
+        player.pause();
+      }
+    });
+    player.on("play", function (time) {
+      const nextPos = posRef.current + 1;
+      if (nextPos < text.length && time.seconds >= text[nextPos].time) {
+        setPos(nextPos);
+        posRef.current = nextPos;
+      }
     });
   }, []);
 
@@ -73,39 +105,47 @@ function App() {
           title="video"
         ></iframe>
       </div>
-      <div className="buttons">
-        <button className="button">Prev</button>
-        <button className="button" onClick={rewind}>
-          Rewind
-        </button>
-        <button className="button">Next</button>
-      </div>
+      {userInteraction && (
+        <div className="buttons">
+          <button className="button" onClick={rewind}>
+            Prev
+          </button>
+          <button className="button" onClick={repeat}>
+            Repeat
+          </button>
+          <button className="button" onClick={forward}>
+            Next
+          </button>
+        </div>
+      )}
       <ul className="collapsible col s12 m10 offset-m1">
-        <li>
-          <div className="collapsible-header">
-            <i className="material-icons">subtitles</i>
-            {content.subtitles[region]}
-          </div>
-          <div className="collapsible-body">
-            {text[0].subtitles.en.map((subtitle: string) => (
-              <p className="flow-text">{subtitle}</p>
-            ))}
-          </div>
-        </li>
-        {region !== "en" && (
+        {text[pos].subtitles.en.length > 0 && (
+          <li>
+            <div className="collapsible-header">
+              <i className="material-icons">subtitles</i>
+              {content.subtitles[region]}
+            </div>
+            <div className="collapsible-body">
+              {text[pos].subtitles.en.map((subtitle: string) => (
+                <p className="flow-text">{subtitle}</p>
+              ))}
+            </div>
+          </li>
+        )}
+        {region !== "en" && text[pos].translation[region].length > 0 && (
           <li>
             <div className="collapsible-header">
               <i className="material-icons">g_translate</i>
               {content.translation[region]}
             </div>
             <div className="collapsible-body">
-              {text[0].translation[region].map((translation: string) => (
+              {text[pos].translation[region].map((translation: string) => (
                 <p className="flow-text">{translation}</p>
               ))}
             </div>
           </li>
         )}
-        {text[0].vocabulary.length > 0 && (
+        {text[pos].vocabulary.length > 0 && (
           <li>
             <div className="collapsible-header">
               <i className="material-icons">school</i>
@@ -120,12 +160,14 @@ function App() {
                   </tr>
                 </thead>
                 <tbody>
-                  {text[0].vocabulary.map(([phrase, definition]: string[]) => (
-                    <tr>
-                      <td>{phrase}</td>
-                      <td>{definition}</td>
-                    </tr>
-                  ))}
+                  {text[pos].vocabulary.map(
+                    ([phrase, definition]: string[]) => (
+                      <tr>
+                        <td>{phrase}</td>
+                        <td>{definition}</td>
+                      </tr>
+                    )
+                  )}
                 </tbody>
               </table>
             </div>
