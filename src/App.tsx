@@ -74,12 +74,12 @@ function App() {
   return (
     <center>
       <div className="row">
-        <div className="col s12 m8 l6 offset-m2 offset-l3">
+        <div className="col s12 m8 l6 offset-m2 offset-l3" id="column">
           <div className="video-container">
             <iframe
               width="853"
               height="480"
-              src="https://player.vimeo.com/video/784124019?h=8b1452e6ab&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+              src="https://player.vimeo.com/video/784124019?h=8b1452e6ab&amp;badge=0&amp;autoplay=1&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
               frameBorder="0"
               allowFullScreen
               title="video"
