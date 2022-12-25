@@ -59,14 +59,21 @@ function App() {
     const iframe = document.getElementsByTagName("iframe")[0];
     const player = new Player(iframe);
     setPlayer(player);
-    player.on("timeupdate", function (time) {
+    player.on("timeupdate", (time) => {
       setUserInteraction(true);
       const nextPos = posRef.current + 1;
-      if (nextPos < text.length && time.seconds >= text[nextPos].time) {
-        player.pause();
+      if (nextPos < text.length) {
+        const diff = text[nextPos].time - time.seconds;
+        if (diff <= 0) {
+          player.pause();
+        } else if (diff <= 0.25) {
+          setTimeout(() => {
+            player.pause();
+          }, diff * 1000);
+        }
       }
     });
-    player.on("play", function (time) {
+    player.on("play", (time) => {
       const nextPos = posRef.current + 1;
       if (nextPos < text.length && time.seconds >= text[nextPos].time) {
         setPos(nextPos);

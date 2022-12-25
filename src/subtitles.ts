@@ -5,9 +5,9 @@ const subtitles = [
         de: []
     },
     {
-        en: ["My bad! Everybody all right?"],
-        es: ["¡Culpa mía! ¿Todos bien?"],
-        de: ["Mein Fehler! Alle in Ordnung?"]
+        en: ["- My bad! Everybody all right?", "- I'll go get my mommy!"],
+        es: ["- ¡Culpa mía! ¿Todos bien?", "¡Voy a buscar a mi mamá!"],
+        de: ["- Mein Fehler! Alle in Ordnung?", "Ich hole meine Mama!"]
     },
     {
         en: ["He's an asshole!"],
@@ -75,6 +75,11 @@ const subtitles = [
         de: ["Nenn mich noch einmal Arschloch!"]
     },
     {
+        en: ["Ass..."],
+        es: ["Imbéc..."],
+        de: ["Arsch..."]
+    },
+    {
         en: ["(What) about you thickness?"],
         es: ["¿Qué hay de ti, gordo?"],
         de: ["Was ist mit dir, Fettsack?"]
@@ -110,14 +115,19 @@ const subtitles = [
         de: ["In Ordnung, alles in Ordnung, alles in Ordnung, alles in Ordnung!"]
     },
     {
+        en: ["Mommy, Mommy!"],
+        es: ["¡Mamá, Mamá!"],
+        de: ["Mama, Mama!"]
+    },
+    {
         en: ["Oh stop crying punkass, go ahead!"],
         es: ["Oh, deja de llorar idiota, ¡adelante!"],
         de: ["Oh, hör auf zu heulen du Kobold, vorwärts!"]
     },
     {
-        en: ["(This is) not ok, ok? (This is) really not ok!"],
-        es: ["Esto no está bien, ¿de acuerdo? ¡Esto realmente no está bien!"],
-        de: ["Das ist nicht ok, ok? Das ist wirklich nicht ok!"]
+        en: ["- (This is) not ok, ok?", "- He (is) all right! He...", "- (This is) really not ok!"],
+        es: ["- Esto no está bien, ¿de acuerdo?,", "- ¡El está bien! Él...", "- ¡Esto realmente no está bien!"],
+        de: ["- Das ist nicht ok, ok?", "- Er ist ok! Er...", "- Das ist wirklich nicht ok!"]
     },
     {
         en: ["This is some of the stuff we're gonna work on!"],
@@ -143,6 +153,11 @@ const subtitles = [
         en: ["I live here, I know what the street's like!"],
         es: ["¡Vivo aquí, sé cómo es la calle!"],
         de: ["Ich wohne hier, ich kenne die Straße!"]
+    },
+    {
+        en: [],
+        es: [],
+        de: []
     },
 ];
 export default subtitles;
