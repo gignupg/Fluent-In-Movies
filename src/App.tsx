@@ -63,7 +63,7 @@ function App() {
       setUserInteraction(true);
       const nextPos = posRef.current + 1;
       if (nextPos < text.length) {
-        const diff = text[nextPos].time - time.seconds;
+        const diff = text[nextPos].time - time.seconds - 0.1; // We have to stop a tiny bit earlier (0.1 seconds) because Vimeo still plays the audio for about 0.1 seconds after pausing the video!
         if (diff <= 0) {
           player.pause();
         } else if (diff <= 0.25) {
