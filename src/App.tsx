@@ -47,7 +47,11 @@ function App() {
   };
 
   const handleTextClick = (subs: boolean, trans: boolean, vocab: boolean) => {
-    setText({ subs, trans, vocab });
+    if ((text.subs && subs) || (text.trans && trans) || (text.vocab && vocab)) {
+      setText({ subs: false, trans: false, vocab: false });
+    } else {
+      setText({ subs, trans, vocab });
+    }
   };
 
   useEffect(() => {
