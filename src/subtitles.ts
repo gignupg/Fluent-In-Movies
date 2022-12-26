@@ -6,8 +6,8 @@ const subtitles = [
     },
     {
         en: ["- My bad! Everybody all right?", "- I'll go get my mommy!"],
-        es: ["- ¡Culpa mía! ¿Todos bien?", "¡Voy a buscar a mi mamá!"],
-        de: ["- Mein Fehler! Alle in Ordnung?", "Ich hole meine Mama!"]
+        es: ["- ¡Culpa mía! ¿Todos bien?", "- ¡Voy a buscar a mi mamá!"],
+        de: ["- Mein Fehler! Alle in Ordnung?", "- Ich hole meine Mama!"]
     },
     {
         en: ["He's an asshole!"],

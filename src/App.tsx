@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import "./App.css";
 import M from "materialize-css";
-import text from "./text";
+import data from "./data";
 import content from "./content";
 import Player from "@vimeo/player";
 
@@ -13,11 +13,17 @@ function App() {
   const [pos, setPos] = useState<number>(0);
   const posRef = useRef<number>(0);
   const [userInteraction, setUserInteraction] = useState<boolean>(false);
+  const [text, setText] = useState({ subs: false, trans: false, vocab: false });
+  const [textDisabled, setTextDisabled] = useState({
+    subs: false,
+    trans: false,
+    vocab: false,
+  });
 
   const forward = () => {
     const newPos = posRef.current + 1;
-    if (newPos < text.length) {
-      player?.setCurrentTime(text[newPos].time);
+    if (newPos < data.length) {
+      player?.setCurrentTime(data[newPos].time);
       setPos(newPos);
       posRef.current = newPos;
       player?.play();
@@ -27,7 +33,7 @@ function App() {
   const rewind = () => {
     const newPos = posRef.current - 1;
     if (newPos >= 0) {
-      player?.setCurrentTime(text[newPos].time);
+      player?.setCurrentTime(data[newPos].time);
       setPos(newPos);
       posRef.current = newPos;
       player?.play();
@@ -35,8 +41,12 @@ function App() {
   };
 
   const repeat = () => {
-    player?.setCurrentTime(text[posRef.current].time);
+    player?.setCurrentTime(data[posRef.current].time);
     player?.play();
+  };
+
+  const handleTextClick = (subs: boolean, trans: boolean, vocab: boolean) => {
+    setText({ subs, trans, vocab });
   };
 
   useEffect(() => {
@@ -51,8 +61,8 @@ function App() {
     player.on("timeupdate", (time) => {
       setUserInteraction(true);
       const nextPos = posRef.current + 1;
-      if (nextPos < text.length) {
-        const diff = text[nextPos].time - time.seconds - 0.1; // We have to stop a tiny bit earlier (0.1 seconds) because Vimeo still plays the audio for about 0.1 seconds after pausing the video!
+      if (nextPos < data.length) {
+        const diff = data[nextPos].time - time.seconds - 0.1; // We have to stop a tiny bit earlier (0.1 seconds) because Vimeo still plays the audio for about 0.1 seconds after pausing the video!
         if (diff <= 0) {
           player.pause();
         } else if (diff <= 0.25) {
@@ -68,12 +78,25 @@ function App() {
     });
     player.on("play", (time) => {
       const nextPos = posRef.current + 1;
-      if (nextPos < text.length && time.seconds >= text[nextPos].time) {
+      if (nextPos < data.length && time.seconds >= data[nextPos].time) {
         setPos(nextPos);
         posRef.current = nextPos;
       }
     });
   }, []);
+
+  useEffect(() => {
+    const curr = data[posRef.current];
+    setText({ subs: false, trans: false, vocab: false });
+    // Disable buttons!
+    setTextDisabled({
+      subs: curr.subtitles.en.length === 0,
+      trans: region === "en" || curr.translation[region].length === 0,
+      vocab: curr.vocabulary.length === 0,
+    });
+    // Disable Translation if region === 'en'
+    // Disable Vocab if there is no vocab!
+  }, [pos]);
 
   return (
     <center>
@@ -89,9 +112,9 @@ function App() {
             ></iframe>
           </div>
           {userInteraction && (
-            <div className="buttons">
+            <div>
               <button
-                className="btn-large waves-effect waves-light col s4"
+                className="btn-large light-blue accent-1 black-text waves-effect waves-light col s4"
                 onClick={rewind}
               >
                 <i className="large material-icons col s4 offset-s4">
@@ -99,55 +122,69 @@ function App() {
                 </i>
               </button>
               <button
-                className="btn-large waves-effect waves-light col s4"
+                className="btn-large light-blue accent-1 black-text waves-effect waves-light col s4"
                 onClick={repeat}
               >
                 <i className="large material-icons col s4 offset-s4">replay</i>
               </button>
               <button
-                className="btn-large waves-effect waves-light col s4"
+                className="btn-large light-blue accent-1 black-text waves-effect waves-light col s4"
                 onClick={forward}
               >
                 <i className="large material-icons col s4 offset-s4">
                   fast_forward
                 </i>
               </button>
+              {(!textDisabled.subs ||
+                !textDisabled.trans ||
+                !textDisabled.vocab) && (
+                <div>
+                  <button
+                    disabled={textDisabled.subs}
+                    onClick={() => handleTextClick(true, false, false)}
+                    className="btn-large light-blue lighten-5
+ black-text waves-effect waves-light col s4"
+                  >
+                    {content.subtitles[region]}
+                  </button>
+                  <button
+                    disabled={textDisabled.trans}
+                    onClick={() => handleTextClick(false, true, false)}
+                    className="btn-large light-blue lighten-5
+ black-text waves-effect waves-light col s4"
+                  >
+                    {content.translation[region]}
+                  </button>
+                  <button
+                    disabled={textDisabled.vocab}
+                    onClick={() => handleTextClick(false, false, true)}
+                    className="btn-large light-blue lighten-5
+ black-text waves-effect waves-light col s4"
+                  >
+                    {content.vocabulary[region]}
+                  </button>
+                </div>
+              )}
             </div>
           )}
-          <ul className="collapsible">
-            {text[pos].subtitles.en.length > 0 && (
-              <li>
-                <div className="collapsible-header">
-                  <i className="material-icons">subtitles</i>
-                  {content.subtitles[region]}
-                </div>
-                <div className="collapsible-body">
-                  {text[pos].subtitles.en.map((subtitle: string) => (
-                    <p className="flow-text">{subtitle}</p>
-                  ))}
-                </div>
-              </li>
-            )}
-            {region !== "en" && text[pos].translation[region].length > 0 && (
-              <li>
-                <div className="collapsible-header">
-                  <i className="material-icons">g_translate</i>
-                  {content.translation[region]}
-                </div>
-                <div className="collapsible-body">
-                  {text[pos].translation[region].map((translation: string) => (
-                    <p className="flow-text">{translation}</p>
-                  ))}
-                </div>
-              </li>
-            )}
-            {text[pos].vocabulary.length > 0 && (
-              <li>
-                <div className="collapsible-header">
-                  <i className="material-icons">school</i>
-                  {content.vocabulary[region]}
-                </div>
-                <div className="collapsible-body left-align">
+          {(text.subs || text.trans || text.vocab) && (
+            <div className="col s12">
+              <div className="card-panel">
+                {text.subs && (
+                  <div>
+                    {data[pos].subtitles.en.map((subtitle) => (
+                      <p className="flow-text">{subtitle}</p>
+                    ))}
+                  </div>
+                )}
+                {text.trans && (
+                  <div>
+                    {data[pos].translation[region].map((translation) => (
+                      <p className="flow-text">{translation}</p>
+                    ))}
+                  </div>
+                )}
+                {text.vocab && (
                   <table className="striped">
                     <thead>
                       <tr>
@@ -156,7 +193,7 @@ function App() {
                       </tr>
                     </thead>
                     <tbody>
-                      {text[pos].vocabulary.map(
+                      {data[pos].vocabulary.map(
                         ([phrase, definition]: string[]) => (
                           <tr>
                             <td>{phrase}</td>
@@ -166,10 +203,10 @@ function App() {
                       )}
                     </tbody>
                   </table>
-                </div>
-              </li>
-            )}
-          </ul>
+                )}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </center>

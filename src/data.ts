@@ -1,6 +1,6 @@
 import subtitles from './subtitles';
 
-const text = [
+const data = [
     {
         time: 0,
         subtitles: {
@@ -461,4 +461,4 @@ const text = [
     }
 ];
 
-export default text;
+export default data;
