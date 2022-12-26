@@ -60,6 +60,10 @@ function App() {
             player.pause();
           }, diff * 1000);
         }
+      } else if (time.seconds < 1) {
+        // When someone reaches the end and goes back to the start
+        setPos(0);
+        posRef.current = 0;
       }
     });
     player.on("play", (time) => {
@@ -79,9 +83,8 @@ function App() {
             <iframe
               width="853"
               height="480"
-              src="https://player.vimeo.com/video/784124019?h=8b1452e6ab&amp;badge=0&amp;autoplay=1&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+              src="https://player.vimeo.com/video/784124019?h=8b1452e6ab&amp;badge=0&amp;player_id=0&amp;app_id=58479"
               frameBorder="0"
-              allowFullScreen
               title="video"
             ></iframe>
           </div>
