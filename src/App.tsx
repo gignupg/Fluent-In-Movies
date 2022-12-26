@@ -13,6 +13,7 @@ function App() {
   const [pos, setPos] = useState<number>(0);
   const posRef = useRef<number>(0);
   const [userInteraction, setUserInteraction] = useState<boolean>(false);
+  const [paused, setPaused] = useState(true);
   const [text, setText] = useState({ subs: false, trans: false, vocab: false });
   const [textDisabled, setTextDisabled] = useState({
     subs: false,
@@ -77,11 +78,15 @@ function App() {
       }
     });
     player.on("play", (time) => {
+      setPaused(false);
       const nextPos = posRef.current + 1;
       if (nextPos < data.length && time.seconds >= data[nextPos].time) {
         setPos(nextPos);
         posRef.current = nextPos;
       }
+    });
+    player.on("pause", () => {
+      setPaused(true);
     });
   }, []);
 
@@ -132,7 +137,7 @@ function App() {
                 onClick={forward}
               >
                 <i className="large material-icons col s4 offset-s4">
-                  fast_forward
+                  {paused ? "play_arrow" : "fast_forward"}
                 </i>
               </button>
               {(!textDisabled.subs ||
