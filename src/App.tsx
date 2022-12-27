@@ -14,12 +14,8 @@ function App() {
   const posRef = useRef<number>(0);
   const [userInteraction, setUserInteraction] = useState<boolean>(false);
   const [paused, setPaused] = useState(true);
+  const [translation, setTranslation] = useState([]);
   const [text, setText] = useState({ subs: false, trans: false, vocab: false });
-  const [textDisabled, setTextDisabled] = useState({
-    subs: false,
-    trans: false,
-    vocab: false,
-  });
 
   const forward = () => {
     const newPos = posRef.current + 1;
@@ -95,16 +91,9 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const curr = data[posRef.current];
+    // When listening to a new phrase, subtitles, translations and vocabulary should not be visible
+    // so the users can focus on the audio without looking at the subtitles immediately
     setText({ subs: false, trans: false, vocab: false });
-    // Disable buttons!
-    setTextDisabled({
-      subs: curr.subtitles.en.length === 0,
-      trans: region === "en" || curr.translation[region].length === 0,
-      vocab: curr.vocabulary.length === 0,
-    });
-    // Disable Translation if region === 'en'
-    // Disable Vocab if there is no vocab!
   }, [pos]);
 
   return (
@@ -144,36 +133,30 @@ function App() {
                   {paused ? "play_arrow" : "fast_forward"}
                 </i>
               </button>
-              {(!textDisabled.subs ||
-                !textDisabled.trans ||
-                !textDisabled.vocab) && (
-                <div>
-                  <button
-                    disabled={textDisabled.subs}
-                    onClick={() => handleTextClick(true, false, false)}
-                    className="btn-large light-blue lighten-5
+              <button
+                disabled={data[pos].subtitles.length === 0}
+                onClick={() => handleTextClick(true, false, false)}
+                className="btn-large light-blue lighten-5
  black-text waves-effect waves-light col s4"
-                  >
-                    {content.subtitles[region]}
-                  </button>
-                  <button
-                    disabled={textDisabled.trans}
-                    onClick={() => handleTextClick(false, true, false)}
-                    className="btn-large light-blue lighten-5
+              >
+                {content.subtitles[region]}
+              </button>
+              <button
+                disabled={true}
+                onClick={() => handleTextClick(false, true, false)}
+                className="btn-large light-blue lighten-5
  black-text waves-effect waves-light col s4"
-                  >
-                    {content.translation[region]}
-                  </button>
-                  <button
-                    disabled={textDisabled.vocab}
-                    onClick={() => handleTextClick(false, false, true)}
-                    className="btn-large light-blue lighten-5
+              >
+                {content.translation[region]}
+              </button>
+              <button
+                disabled={data[pos].vocabulary.length === 0}
+                onClick={() => handleTextClick(false, false, true)}
+                className="btn-large light-blue lighten-5
  black-text waves-effect waves-light col s4"
-                  >
-                    {content.vocabulary[region]}
-                  </button>
-                </div>
-              )}
+              >
+                {content.vocabulary[region]}
+              </button>
             </div>
           )}
           {(text.subs || text.trans || text.vocab) && (
@@ -181,16 +164,16 @@ function App() {
               <div className="card-panel">
                 {text.subs && (
                   <div>
-                    {data[pos].subtitles.en.map((subtitle) => (
+                    {data[pos].subtitles.map((subtitle) => (
                       <p className="flow-text">{subtitle}</p>
                     ))}
                   </div>
                 )}
-                {text.trans && (
+                {false && (
                   <div>
-                    {data[pos].translation[region].map((translation) => (
-                      <p className="flow-text">{translation}</p>
-                    ))}
+                    <p className="flow-text">
+                      Display the translation text here!
+                    </p>
                   </div>
                 )}
                 {text.vocab && (

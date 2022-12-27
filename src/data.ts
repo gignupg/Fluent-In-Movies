@@ -1,146 +1,58 @@
-import subtitles from './subtitles';
-
 const data = [
     {
         time: 0,
-        subtitles: {
-            en: subtitles[0].en,
-            es: subtitles[0].es,
-            de: subtitles[0].de
-        },
-        translation: {
-            en: subtitles[0].en,
-            es: subtitles[0].es,
-            de: subtitles[0].de
-        },
+        subtitles: [],
+        captions: [],
         vocabulary: []
     },
     {
         time: 5.25,
-        subtitles: {
-            en: subtitles[1].en,
-            es: subtitles[1].es,
-            de: subtitles[1].de
-        },
-        translation: {
-            en: subtitles[1].en,
-            es: subtitles[1].es,
-            de: subtitles[1].de
-        },
+        subtitles: ["- My bad! Everybody all right?", "- I'll go get my mommy!"],
+        captions: ["- My bad! Everybody all right?", "- I'll go get my mommy!"],
         vocabulary: [
             ["My bad", "Used to acknowledge responsibility for a mistake. \"Sorry about the confusion. It's my bad!\""]
         ]
     },
     {
         time: 9.5,
-        subtitles: {
-            en: subtitles[2].en,
-            es: subtitles[2].es,
-            de: subtitles[2].de
-        },
-        translation: {
-            en: subtitles[2].en,
-            es: subtitles[2].es,
-            de: subtitles[2].de
-        },
-        vocabulary: []
-    },
-    {
-        time: 11.25,
-        subtitles: {
-            en: subtitles[3].en,
-            es: subtitles[3].es,
-            de: subtitles[3].de
-        },
-        translation: {
-            en: subtitles[3].en,
-            es: subtitles[3].es,
-            de: subtitles[3].de
-        },
+        subtitles: ["He's an asshole!"],
+        captions: ["He's an asshole!"],
         vocabulary: []
     },
     {
         time: 19.6,
-        subtitles: {
-            en: subtitles[4].en,
-            es: subtitles[4].es,
-            de: subtitles[4].de
-        },
-        translation: {
-            en: subtitles[4].en,
-            es: subtitles[4].es,
-            de: subtitles[4].de
-        },
+        subtitles: ["- What's your name, boy?", "- Michel."],
+        captions: ["- What's your name, boy?", "- Michel."],
         vocabulary: []
     },
     {
         time: 24.8,
-        subtitles: {
-            en: subtitles[5].en,
-            es: subtitles[5].es,
-            de: subtitles[5].de
-        },
-        translation: {
-            en: subtitles[5].en,
-            es: subtitles[5].es,
-            de: subtitles[5].de
-        },
+        subtitles: ["- (Do) you know who I am?", "- My papa says you are an asshole!"],
+        captions: ["- Do you know who I am?", "- My dad says you are an asshole!"],
         vocabulary: []
     },
     {
         time: 28.3,
-        subtitles: {
-            en: subtitles[6].en,
-            es: subtitles[6].es,
-            de: subtitles[6].de
-        },
-        translation: {
-            en: subtitles[6].en,
-            es: subtitles[6].es,
-            de: subtitles[6].de
-        },
+        subtitles: ["That's not really a nice word to call a person, is it?"],
+        captions: ["That's not really a nice word to call a person, is it?"],
         vocabulary: []
     },
     {
         time: 31.5,
-        subtitles: {
-            en: subtitles[7].en,
-            es: subtitles[7].es,
-            de: subtitles[7].de
-        },
-        translation: {
-            en: subtitles[7].en,
-            es: subtitles[7].es,
-            de: subtitles[7].de
-        },
+        subtitles: ["- Asshole?", "- Yeah, cause that could make someone very angry!"],
+        captions: ["- Asshole?", "- Yeah, cause that could make someone very angry!"],
         vocabulary: []
     },
     {
         time: 36.2,
-        subtitles: {
-            en: subtitles[8].en,
-            es: subtitles[8].es,
-            de: subtitles[8].de
-        },
-        translation: {
-            en: subtitles[8].en,
-            es: subtitles[8].es,
-            de: subtitles[8].de
-        },
+        subtitles: ["- And you know, maybe hurt their feelings!", "- You behave like an asshole!"],
+        captions: ["- And you know, maybe hurt their feelings!", "- You behave like an asshole!"],
         vocabulary: []
     },
     {
         time: 44.3,
-        subtitles: {
-            en: subtitles[9].en,
-            es: subtitles[9].es,
-            de: subtitles[9].de
-        },
-        translation: {
-            en: subtitles[9].en,
-            es: subtitles[9].es,
-            de: subtitles[9].de
-        },
+        subtitles: ["- All right, uhh, (do you) you know Aaron?", "- Oui, le petit asshole."],
+        captions: ["- All right, do you know Aaron?", "- Yes, the small asshole."],
         vocabulary: [
             ["Oui [French]", "Yes"],
             ["Petit [French]", "Small"],
@@ -149,181 +61,85 @@ const data = [
     },
     {
         time: 51.2,
-        subtitles: {
-            en: subtitles[10].en,
-            es: subtitles[10].es,
-            de: subtitles[10].de
-        },
-        translation: {
-            en: subtitles[10].en,
-            es: subtitles[10].es,
-            de: subtitles[10].de
-        },
+        subtitles: ["Well uhh, (he) seems to be a pretty good kid uhh."],
+        captions: ["Well, he seems to be a pretty good kid."],
         vocabulary: []
     },
     {
         time: 56.2,
-        subtitles: {
-            en: subtitles[11].en,
-            es: subtitles[11].es,
-            de: subtitles[11].de
-        },
-        translation: {
-            en: subtitles[11].en,
-            es: subtitles[11].es,
-            de: subtitles[11].de
-        },
+        subtitles: ["- (I) just wanna ask you to lay off of him a little bit.", "- Why asshole?"],
+        captions: ["- I just want to ask you to lay off of him a little bit.", "- Why asshole?"],
         vocabulary: [
             ["To lay off of someone", "To leave someone alone, to stop bothering/attacking/hurting someone"]
         ]
     },
     {
         time: 64,
-        subtitles: {
-            en: subtitles[12].en,
-            es: subtitles[12].es,
-            de: subtitles[12].de
-        },
-        translation: {
-            en: subtitles[12].en,
-            es: subtitles[12].es,
-            de: subtitles[12].de
-        },
+        subtitles: ["- You (are) gonna stop calling me that!", "- Asshole!"],
+        captions: ["- You are gonna stop calling me that!", "- Asshole!"],
         vocabulary: []
     },
     {
         time: 67.1,
-        subtitles: {
-            en: subtitles[13].en,
-            es: subtitles[13].es,
-            de: subtitles[13].de
-        },
-        translation: {
-            en: subtitles[13].en,
-            es: subtitles[13].es,
-            de: subtitles[13].de
-        },
+        subtitles: ["- That's not my name!", "- Asshole!"],
+        captions: ["- That's not my name!", "- Asshole!"],
         vocabulary: []
     },
     {
         time: 74.8,
-        subtitles: {
-            en: subtitles[14].en,
-            es: subtitles[14].es,
-            de: subtitles[14].de
-        },
-        translation: {
-            en: subtitles[14].en,
-            es: subtitles[14].es,
-            de: subtitles[14].de
-        },
+        subtitles: ["Call me a(n) asshole, one more time!"],
+        captions: ["Call me an asshole, one more time!"],
         vocabulary: []
     },
     {
         time: 82.1,
-        subtitles: {
-            en: subtitles[15].en,
-            es: subtitles[15].es,
-            de: subtitles[15].de
-        },
-        translation: {
-            en: subtitles[15].en,
-            es: subtitles[15].es,
-            de: subtitles[15].de
-        },
+        subtitles: ["Ass..."],
+        captions: ["Asshole"],
         vocabulary: []
     },
     {
         time: 87.5,
-        subtitles: {
-            en: subtitles[16].en,
-            es: subtitles[16].es,
-            de: subtitles[16].de
-        },
-        translation: {
-            en: subtitles[16].en,
-            es: subtitles[16].es,
-            de: subtitles[16].de
-        },
+        subtitles: ["(What) about you thickness?"],
+        captions: ["What about you thickness?"],
         vocabulary: [
-            ["Thickness", "Used as a swear word, meaning fat (non-standard)"],
-            ["About you thickness?", "What about you fat boy?"]
+            ["Thickness", "Fat/dumb"],
+            ["About you thickness?", "What about you fat/stupid boy?"]
         ]
     },
     {
         time: 90.4,
-        subtitles: {
-            en: subtitles[17].en,
-            es: subtitles[17].es,
-            de: subtitles[17].de
-        },
-        translation: {
-            en: subtitles[17].en,
-            es: subtitles[17].es,
-            de: subtitles[17].de
-        },
+        subtitles: ["Goggles?"],
+        captions: ["Goggles?"],
         vocabulary: [
             ["Goggles", "Special glasses that fit close to the face to protect the eyes, often used for swimming"]
         ]
     },
     {
         time: 92,
-        subtitles: {
-            en: subtitles[18].en,
-            es: subtitles[18].es,
-            de: subtitles[18].de
-        },
-        translation: {
-            en: subtitles[18].en,
-            es: subtitles[18].es,
-            de: subtitles[18].de
-        },
+        subtitles: ["Hancock, you son of a gun, I knew you'd come, ask Mary!"],
+        captions: ["Hancock, you son of a gun, I knew you'd come, ask Mary!"],
         vocabulary: [
             ["Son of a gun", "Son of a gun is an exclamation in American and British English. It can be used encouragingly or to compliment, as in \"You son of a gun, you did it!\""]
         ]
     },
     {
         time: 96.5,
-        subtitles: {
-            en: subtitles[19].en,
-            es: subtitles[19].es,
-            de: subtitles[19].de
-        },
-        translation: {
-            en: subtitles[19].en,
-            es: subtitles[19].es,
-            de: subtitles[19].de
-        },
+        subtitles: ["I had a feeling, I said he heard me, he's ready for a change!"],
+        captions: ["I had a feeling, I said he heard me, he's ready for a change!"],
         vocabulary: []
     },
     {
         time: 99.6,
-        subtitles: {
-            en: subtitles[20].en,
-            es: subtitles[20].es,
-            de: subtitles[20].de
-        },
-        translation: {
-            en: subtitles[20].en,
-            es: subtitles[20].es,
-            de: subtitles[20].de
-        },
+        subtitles: ["This is great! Did you do this? Did you come in a little hot?"],
+        captions: ["This is great! Did you do this? Did you come in a little hot?"],
         vocabulary: [
             ["To come in hot", "He's refering to Hancock's landing, the street got a little destroyed when he landed"]
         ]
     },
     {
         time: 102.1,
-        subtitles: {
-            en: subtitles[21].en,
-            es: subtitles[21].es,
-            de: subtitles[21].de
-        },
-        translation: {
-            en: subtitles[21].en,
-            es: subtitles[21].es,
-            de: subtitles[21].de
-        },
+        subtitles: ["- Yeah, (I'll meet) I'll meet you in the house!", "- This is the very place for us to start, I know you don't drive!", "- Aww, Dammit!"],
+        captions: ["- Yeah, I'll meet you in the house!", "- This is the very place for us to start, I know you don't drive!", "- Dammit!"],
         vocabulary: [
             ["Very", "Exact/precise"],
             ["You don't drive", "Hancock doesn't drive or own a car because he always flies"]
@@ -331,132 +147,60 @@ const data = [
     },
     {
         time: 108.5,
-        subtitles: {
-            en: subtitles[22].en,
-            es: subtitles[22].es,
-            de: subtitles[22].de
-        },
-        translation: {
-            en: subtitles[22].en,
-            es: subtitles[22].es,
-            de: subtitles[22].de
-        },
+        subtitles: ["All right, you're all right, you're all right, you're all right!"],
+        captions: ["All right, you're all right, you're all right, you're all right!"],
         vocabulary: []
     },
     {
         time: 112,
-        subtitles: {
-            en: subtitles[23].en,
-            es: subtitles[23].es,
-            de: subtitles[23].de
-        },
-        translation: {
-            en: subtitles[23].en,
-            es: subtitles[23].es,
-            de: subtitles[23].de
-        },
+        subtitles: ["Mommy, Mommy!"],
+        captions: ["Mommy, Mommy!"],
         vocabulary: []
     },
     {
         time: 115,
-        subtitles: {
-            en: subtitles[24].en,
-            es: subtitles[24].es,
-            de: subtitles[24].de
-        },
-        translation: {
-            en: subtitles[24].en,
-            es: subtitles[24].es,
-            de: subtitles[24].de
-        },
+        subtitles: ["Oh stop crying punkass, go ahead!"],
+        captions: ["Oh stop crying punkass, go ahead!"],
         vocabulary: [
             ["Punkass", "An obnoxious or stupid person unworthy of respect"]
         ]
     },
     {
         time: 119.4,
-        subtitles: {
-            en: subtitles[25].en,
-            es: subtitles[25].es,
-            de: subtitles[25].de
-        },
-        translation: {
-            en: subtitles[25].en,
-            es: subtitles[25].es,
-            de: subtitles[25].de
-        },
+        subtitles: ["- (This is) not ok, ok?", "- He (is) all right! He...", "- (This is) really not ok!"],
+        captions: ["- This is not ok, ok?", "- He is all right!", "- This is really not ok!"],
         vocabulary: []
     },
     {
         time: 123.95,
-        subtitles: {
-            en: subtitles[26].en,
-            es: subtitles[26].es,
-            de: subtitles[26].de
-        },
-        translation: {
-            en: subtitles[26].en,
-            es: subtitles[26].es,
-            de: subtitles[26].de
-        },
+        subtitles: ["This is some of the stuff we're gonna work on!"],
+        captions: ["This is some of the stuff we're gonna work on!"],
         vocabulary: []
     },
     {
         time: 125.5,
-        subtitles: {
-            en: subtitles[27].en,
-            es: subtitles[27].es,
-            de: subtitles[27].de
-        },
-        translation: {
-            en: subtitles[27].en,
-            es: subtitles[27].es,
-            de: subtitles[27].de
-        },
+        subtitles: ["How do you think that conversation is gonna go down with his mom?"],
+        captions: ["How do you think that conversation is gonna go down with his mom?"],
         vocabulary: [
             ["To go down", "To be received in a particular way: \"The joke didn't go down very well!\""]
         ]
     },
     {
         time: 129.1,
-        subtitles: {
-            en: subtitles[28].en,
-            es: subtitles[28].es,
-            de: subtitles[28].de
-        },
-        translation: {
-            en: subtitles[28].en,
-            es: subtitles[28].es,
-            de: subtitles[28].de
-        },
+        subtitles: ["Landing like that in the street is also on the uncool side!"],
+        captions: ["Landing like that in the street is also on the uncool side!"],
         vocabulary: []
     },
     {
         time: 131.75,
-        subtitles: {
-            en: subtitles[29].en,
-            es: subtitles[29].es,
-            de: subtitles[29].de
-        },
-        translation: {
-            en: subtitles[29].en,
-            es: subtitles[29].es,
-            de: subtitles[29].de
-        },
+        subtitles: ["No that was, that was already like that when I got here, Ray!"],
+        captions: ["No, that was already like that when I got here, Ray!"],
         vocabulary: []
     },
     {
         time: 135.4,
-        subtitles: {
-            en: subtitles[30].en,
-            es: subtitles[30].es,
-            de: subtitles[30].de
-        },
-        translation: {
-            en: subtitles[30].en,
-            es: subtitles[30].es,
-            de: subtitles[30].de
-        },
+        subtitles: ["I live here, I know what the street's like!"],
+        captions: ["I live here, I know what the street's like!"],
         vocabulary: []
     }
 ];

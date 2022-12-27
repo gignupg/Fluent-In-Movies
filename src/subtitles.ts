@@ -15,11 +15,6 @@ const subtitles = [
         de: ["Er ist ein Arschloch!"]
     },
     {
-        en: [],
-        es: [],
-        de: []
-    },
-    {
         en: ["- What's your name, boy?", "- Michel."],
         es: ["- ¿Cómo te llamas, chico?", "- Michel."],
         de: ["- Wie ist dein Name, Junge?", "- Michel."]
@@ -153,11 +148,6 @@ const subtitles = [
         en: ["I live here, I know what the street's like!"],
         es: ["¡Vivo aquí, sé cómo es la calle!"],
         de: ["Ich wohne hier, ich kenne die Straße!"]
-    },
-    {
-        en: [],
-        es: [],
-        de: []
-    },
+    }
 ];
 export default subtitles;
