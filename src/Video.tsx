@@ -71,13 +71,13 @@ function App() {
   };
 
   const onPlayerReady: YouTubeProps["onReady"] = (event) => {
-    console.log("READY");
     const player = event.target;
     playerRef.current = player;
   };
 
   const onPlay = () => {
     const player = playerRef.current as YouTubePlayer;
+    player.unMute();
     const currentTime = player.getCurrentTime();
     setPaused(false);
     const nextPos = posRef.current + 1;
@@ -101,16 +101,16 @@ function App() {
     setInterval(() => {
       const player = playerRef.current as YouTubePlayer;
       if (player) {
-        console.log("INTERVAL");
         const currentTime = player.getCurrentTime();
-        console.log("currentTime:", currentTime);
         const nextPos = posRef.current + 1;
         if (nextPos < data.length) {
-          const diff = data[nextPos].time - currentTime;
+          const diff = data[nextPos].time - currentTime - 0.1; // We have to stop a tiny bit earlier (0.1 seconds) because YouTube still plays the audio for about 0.1 seconds after pausing the video! On mobile it's even longer. 0.2 or maybe even 0.3 seconds delay.
           if (diff <= 0) {
+            player.mute();
             player.pauseVideo();
           } else if (diff <= 0.25) {
             setTimeout(() => {
+              player.mute();
               player.pauseVideo();
             }, diff * 1000);
           }
