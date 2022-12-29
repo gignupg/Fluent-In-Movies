@@ -66,7 +66,7 @@ const data = [
         vocabulary: []
     },
     {
-        time: 56.2,
+        time: 56.6,
         subtitles: ["- (I) just wanna ask you to lay off of him a little bit.", "- Why asshole?"],
         captions: ["- I just want to ask you to lay off of him a little bit.", "- Why asshole?"],
         vocabulary: [
@@ -129,7 +129,7 @@ const data = [
         vocabulary: []
     },
     {
-        time: 99.6,
+        time: 99.55,
         subtitles: ["This is great! Did you do this? Did you come in a little hot?"],
         captions: ["This is great! Did you do this? Did you come in a little hot?"],
         vocabulary: [
@@ -166,7 +166,7 @@ const data = [
         ]
     },
     {
-        time: 119.4,
+        time: 119.2,
         subtitles: ["- (This is) not ok, ok?", "- He (is) all right! He...", "- (This is) really not ok!"],
         captions: ["- This is not ok, ok?", "- He is all right!", "- This is really not ok!"],
         vocabulary: []
@@ -186,13 +186,13 @@ const data = [
         ]
     },
     {
-        time: 129.1,
+        time: 128.8,
         subtitles: ["Landing like that in the street is also on the uncool side!"],
         captions: ["Landing like that in the street is also on the uncool side!"],
         vocabulary: []
     },
     {
-        time: 131.75,
+        time: 131.69,
         subtitles: ["No that was, that was already like that when I got here, Ray!"],
         captions: ["No, that was already like that when I got here, Ray!"],
         vocabulary: []

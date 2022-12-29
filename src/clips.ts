@@ -3,11 +3,13 @@ const clips = [
         id: "dgM9V3lEZvE",
         title: "Hancock",
         subtitle: "Call Me Asshole One More Time",
-        duration: "2m 27s",
+        duration: "2m 22s",
         category: "Movie Clips",
         people: ["Will Smith", "Jason Bateman", "Daeg Faerch"],
         channelName: "Movieclips",
-        channelURL: "https://www.youtube.com/@MOVIECLIPS"
+        channelURL: "https://www.youtube.com/@MOVIECLIPS",
+        start: 0,
+        end: 142
     },
     {
         id: "R8VswzDwS0c",
