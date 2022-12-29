@@ -1,0 +1,14 @@
+.pointer {
+  cursor: pointer;
+}
+
+.no-pointer {
+  cursor: text;
+}
+.brand-logo {
+  padding-left: 2% !important;
+}
+
+.nav-links {
+  padding-right: 1% !important;
+}
