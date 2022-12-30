@@ -32,14 +32,14 @@ const clips = [
         channelURL: "https://www.youtube.com/@fallontonight"
     },
     {
-        id: "px4j_bL7ae8",
-        title: "TEDx",
+        id: "H14bBuluwB8",
+        title: "TED",
         subtitle: "How to be Happy: The Dutch Way",
         duration: "9m 42s",
         category: "Talks",
-        people: ["Britt de Visser"],
-        channelName: "TEDx Talks",
-        channelURL: "https://www.youtube.com/@TEDxTalks"
+        people: ["Angela Lee Duckworth"],
+        channelName: "TED",
+        channelURL: "https://www.youtube.com/@TED"
     },
     {
         id: "i3-jlhJgU9U",

@@ -187,7 +187,7 @@ const data = [
     },
     {
         time: 128.8,
-        subtitles: ["Landing like that in the street is also on the uncool side!"],
+        subtitles: ["Landing like that in the street's also on the uncool side!"],
         captions: ["Landing like that in the street is also on the uncool side!"],
         vocabulary: []
     },
