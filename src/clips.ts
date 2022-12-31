@@ -34,8 +34,8 @@ const clips = [
     {
         id: "H14bBuluwB8",
         title: "TED",
-        subtitle: "How to be Happy: The Dutch Way",
-        duration: "9m 42s",
+        subtitle: "Grit: the power of passion and perseverance",
+        duration: "6m 12s",
         category: "Talks",
         people: ["Angela Lee Duckworth"],
         channelName: "TED",
