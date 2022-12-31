@@ -2,13 +2,21 @@ import clips from "./clips";
 import "./Catalog.css";
 import "materialize-css/dist/js/materialize.min.js";
 
-function App2() {
+function Catalog({
+  setHome,
+}: {
+  setHome: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
+  const handleClick = (e: any) => {
+    if (e.target.id !== "info-icon") setHome(false);
+  };
+
   return (
     <div>
       <nav>
         <div className="nav-wrapper light-blue lighten-5">
           <a href="#!" className="brand-logo black-text">
-            Clip Tutor
+            Fluent In Movies
           </a>
           <ul id="nav-mobile" className="right hide-on-med-and-down nav-links">
             <li>
@@ -31,18 +39,23 @@ function App2() {
       </nav>
       <div className="row">
         {clips.map((clip, idx) => (
-          <div className="col s3" key={idx}>
+          <div className="col s12 m4 l3" key={idx}>
             <div className="card small pointer">
-              <div className="card-image waves-effect waves-block waves-light">
+              <div
+                className="card-image waves-effect waves-block waves-light"
+                onClick={handleClick}
+              >
                 <img
                   src={`http://img.youtube.com/vi/${clip.id}/mqdefault.jpg`}
                   alt=""
                 />
               </div>
-              <div className="card-content">
+              <div className="card-content" onClick={handleClick}>
                 <span className="card-title grey-text text-darken-4">
                   {clip.title}
-                  <i className="material-icons right activator">info_outline</i>
+                  <i className="material-icons right activator" id="info-icon">
+                    info_outline
+                  </i>
                 </span>
                 <p>{clip.subtitle}</p>
               </div>
@@ -88,4 +101,4 @@ function App2() {
   );
 }
 
-export default App2;
+export default Catalog;
