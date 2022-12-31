@@ -39,7 +39,7 @@ function Catalog({
       </nav>
       <div className="row">
         {clips.map((clip, idx) => (
-          <div className="col s12 m4 l3" key={idx}>
+          <div className="col s6 m4 l3" key={idx}>
             <div className="card small pointer">
               <div
                 className="card-image waves-effect waves-block waves-light"
