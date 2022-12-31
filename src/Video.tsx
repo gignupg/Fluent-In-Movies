@@ -8,7 +8,7 @@ import YouTube, { YouTubeProps, YouTubePlayer } from "react-youtube";
 import clips from "./clips";
 
 const language = window.navigator.language.replace(/-.*/, "");
-const region = language === "es" || language === "de" ? language : "en";
+const region = language === "de" ? "de" : "es";
 
 const options: YouTubeProps["opts"] = {
   height: "390",
@@ -168,9 +168,7 @@ function App() {
               {content.subtitles[region]}
             </button>
             <button
-              disabled={
-                region === "en" || translations[pos][region].length === 0
-              }
+              disabled={translations[pos][region].length === 0}
               onClick={() => handleTextClick(false, true, false)}
               className="btn-large light-blue lighten-5
  black-text waves-effect waves-light col s4"
@@ -196,7 +194,7 @@ function App() {
                     ))}
                   </div>
                 )}
-                {region !== "en" && translations[pos][region].length > 0 && (
+                {text.trans && (
                   <div>
                     {translations[pos][region].map((translation) => (
                       <p className="flow-text">{translation}</p>
