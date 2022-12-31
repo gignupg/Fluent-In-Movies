@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import "./Video.css";
 import M from "materialize-css";
 import data from "./data";
+import translations from "./translations";
 import content from "./content";
 import YouTube, { YouTubeProps, YouTubePlayer } from "react-youtube";
 import clips from "./clips";
@@ -167,7 +168,9 @@ function App() {
               {content.subtitles[region]}
             </button>
             <button
-              disabled={true}
+              disabled={
+                region === "en" || translations[pos][region].length === 0
+              }
               onClick={() => handleTextClick(false, true, false)}
               className="btn-large light-blue lighten-5
  black-text waves-effect waves-light col s4"
@@ -193,11 +196,11 @@ function App() {
                     ))}
                   </div>
                 )}
-                {false && (
+                {region !== "en" && translations[pos][region].length > 0 && (
                   <div>
-                    <p className="flow-text">
-                      Display the translation text here!
-                    </p>
+                    {translations[pos][region].map((translation) => (
+                      <p className="flow-text">{translation}</p>
+                    ))}
                   </div>
                 )}
                 {text.vocab && (
